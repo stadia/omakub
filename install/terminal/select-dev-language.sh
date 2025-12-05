@@ -23,10 +23,12 @@ if [[ -n "$languages" ]]; then
       mise use --global go@latest
       ;;
     PHP)
-      sudo apt -y install php php-{curl,apcu,intl,mbstring,opcache,pgsql,mysql,sqlite3,redis,xml,zip} --no-install-recommends
-      php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-      php composer-setup.php --quiet && sudo mv composer.phar /usr/local/bin/composer
-      rm composer-setup.php
+      # Install PHP and common extensions
+      sudo pacman -S --noconfirm php php-intl php-sqlite php-pgsql composer
+      # Enable extensions in php.ini
+      sudo sed -i 's/;extension=intl/extension=intl/' /etc/php/php.ini
+      sudo sed -i 's/;extension=pdo_sqlite/extension=pdo_sqlite/' /etc/php/php.ini
+      sudo sed -i 's/;extension=pdo_pgsql/extension=pdo_pgsql/' /etc/php/php.ini
       ;;
     Python)
       mise use --global python@latest
