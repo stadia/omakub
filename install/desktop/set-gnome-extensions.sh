@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -S --noconfirm gnome-shell-extension-manager libgtop clutter
+sudo pacman -S --noconfirm extension-manager libgtop clutter
 pipx install gnome-extensions-cli --system-site-packages
 
 # Turn off default Ubuntu extensions
