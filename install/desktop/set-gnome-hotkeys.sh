@@ -19,8 +19,8 @@ gsettings set org.gnome.desktop.wm.keybindings toggle-fullscreen "['<Shift>F11']
 gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
 
-# Disable the hotkeys in the Dash to Dock extension (most likely culprit)
-gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false
+# Disable the hotkeys in the Dash to Dock extension if it's installed
+gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false 2>/dev/null || true
 
 # Use alt for pinned apps
 gsettings set org.gnome.shell.keybindings switch-to-application-1 "['<Alt>1']"
