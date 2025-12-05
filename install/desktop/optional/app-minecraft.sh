@@ -1,9 +1,4 @@
 #!/bin/bash
 
-sudo apt install -y openjdk-8-jdk
-
-cd /tmp
-wget https://launcher.mojang.com/download/Minecraft.deb
-sudo apt install -y ./Minecraft.deb
-rm Minecraft.deb
-cd -
+sudo pacman -S --noconfirm jdk8-openjdk
+paru -S --noconfirm minecraft-launcher

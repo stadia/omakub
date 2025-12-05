@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt install -y xournalpp
+sudo pacman -S --noconfirm xournalpp

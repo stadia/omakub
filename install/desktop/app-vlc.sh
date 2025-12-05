@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt install -y vlc
+sudo pacman -S --noconfirm vlc

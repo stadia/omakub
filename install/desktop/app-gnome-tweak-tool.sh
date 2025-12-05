@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt install -y gnome-tweak-tool
+sudo pacman -S --noconfirm gnome-tweaks

@@ -4,5 +4,6 @@
 # See https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview
 # for a guide on how to run Ubuntu inside it.
 
-sudo apt install -y virtualbox virtualbox-ext-pack
+sudo pacman -S --noconfirm virtualbox virtualbox-host-modules-arch
+paru -S --noconfirm virtualbox-ext-oracle
 sudo usermod -aG vboxusers ${USER}

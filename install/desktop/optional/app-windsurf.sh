@@ -1,10 +1,8 @@
 #!/bin/bash
 
-if [ ! -f /etc/apt/sources.list.d/windsurf.list ]; then
-    [ -f /usr/share/keyrings/windsurf-stable-archive-keyring.gpg ] && sudo rm /usr/share/keyrings/windsurf-stable-archive-keyring.gpg
-    curl -fsSL "https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsurf.gpg" | sudo gpg --dearmor -o /usr/share/keyrings/windsurf-stable-archive-keyring.gpg
-    echo "deb [signed-by=/usr/share/keyrings/windsurf-stable-archive-keyring.gpg arch=amd64] https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/apt stable main" | sudo tee /etc/apt/sources.list.d/windsurf.list >/dev/null
-fi
-
-sudo apt update
-sudo apt install -y windsurf
+# Windsurf - AI-powered code editor
+# Check if AUR package is available, otherwise provide manual installation instructions
+paru -S --noconfirm windsurf-bin 2>/dev/null || {
+    echo "Windsurf package not found in AUR"
+    echo "Please visit https://windsurf.ai/ to download and install manually"
+}

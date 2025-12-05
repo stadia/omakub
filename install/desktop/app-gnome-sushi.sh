@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Gives you previews in the file manager when pressing space
-sudo apt install -y gnome-sushi
+sudo pacman -S --noconfirm gnome-sushi
