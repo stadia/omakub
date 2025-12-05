@@ -1,16 +1,7 @@
 #!/bin/bash
 
-cd /tmp
-wget -O nvim.tar.gz "https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.tar.gz"
-tar -xf nvim.tar.gz
-sudo install nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
-sudo cp -R nvim-linux-x86_64/lib /usr/local/
-sudo cp -R nvim-linux-x86_64/share /usr/local/
-rm -rf nvim-linux-x86_64 nvim.tar.gz
-cd -
-
-# Install luarocks and tree-sitter to resolve lazyvim :checkhealth warnings
-sudo pacman -S --noconfirm luarocks tree-sitter
+# Install Neovim and related tools from official repositories
+sudo pacman -S --noconfirm neovim luarocks tree-sitter
 
 # Only attempt to set configuration if Neovim has never been run
 if [ ! -d "$HOME/.config/nvim" ]; then
