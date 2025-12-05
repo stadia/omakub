@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 
 # Make alacritty default terminal emulator
-sudo update-alternatives --set x-terminal-emulator /usr/bin/alacritty
+# Note: update-alternatives is Ubuntu/Debian specific, not needed on Arch Linux
+# Arch users can set default terminal through their desktop environment settings
