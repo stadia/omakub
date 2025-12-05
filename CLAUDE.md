@@ -4,7 +4,19 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Omakub is an opinionated setup tool that transforms a fresh Ubuntu 24.04+ installation into a fully-configured development system. It installs and configures terminal tools, programming languages, databases, and optional desktop applications through an interactive UI (using Gum, a terminal UI framework).
+**Arch Linux Branch**: This is the Arch Linux port of Omakub. For Ubuntu 24.04+ documentation, see the [master branch](https://github.com/basecamp/omakub/tree/master).
+
+Omakub is an opinionated setup tool that transforms a fresh Arch Linux installation into a fully-configured development system. It installs and configures terminal tools, programming languages, databases, and optional desktop applications through an interactive UI (using Gum, a terminal UI framework).
+
+### Arch Linux Differences
+
+This branch (`arch`) differs from the Ubuntu version in several ways:
+
+- **Package Manager**: Uses `pacman` (official Arch repos) and `paru` (AUR) instead of apt
+- **Distribution Support**: Works on Arch Linux and Arch-based distributions (CachyOS, Manjaro, etc.)
+- **Rolling Release**: No version checking required (unlike Ubuntu's release-specific approach)
+- **Bootstrap**: Automatically installs `paru` on first run
+- **Package Names**: Many packages have different names in Arch (e.g., `gnome-tweaks` vs `gnome-tweak-tool`)
 
 ## Architecture Overview
 
@@ -110,13 +122,72 @@ For static binaries from GitHub:
 ## Testing and Quality
 
 - No automated test suite exists (Omakub is meant for fresh installs)
-- Manual testing on fresh Ubuntu 24.04 VMs is the primary validation method
+- Manual testing on fresh Arch Linux VMs or Arch-based distributions is the primary validation method
 - Shell script best practices: quote variables, avoid globbing in loops, handle paths with spaces
 - Desktop installers should verify GNOME is running before executing GNOME-specific configuration
+
+## Arch Linux Package Mappings
+
+When porting installers from Ubuntu to Arch, refer to these common package name changes:
+
+| Ubuntu Package | Arch Package | Notes |
+|---|---|---|
+| `build-essential` | `base-devel` | Build tools and compiler |
+| `libssl-dev` | `openssl` | OpenSSL development files |
+| `libreadline-dev` | `readline` | readline library |
+| `zlib1g-dev` | `zlib` | compression library |
+| `libyaml-dev` | `libyaml` | YAML parsing library |
+| `libncurses5-dev` | `ncurses` | Terminal UI library |
+| `libffi-dev` | `libffi` | Foreign function interface |
+| `libgdbm-dev` | `gdbm` | Database library |
+| `libjemalloc2` | `jemalloc` | Memory allocator |
+| `libmagickwand-dev` | `imagemagick` | Image processing |
+| `redis-tools` | `redis` | Redis server |
+| `libsqlite3-0` | `sqlite` | SQLite database |
+| `fd-find` | `fd` | Fast find alternative |
+| `apache2-utils` | `apache` | Apache utilities |
+| `gnome-tweak-tool` | `gnome-tweaks` | GNOME settings manager |
+| `gnome-shell-extension-manager` | `extension-manager` | Extension manager for GNOME |
+| `gir1.2-gtop-2.0` | `libgtop` | System monitoring library |
+| `gir1.2-clutter-1.0` | `clutter` | Animation framework |
+
+## Arch-Specific Notes
+
+### Available in Official Repos vs AUR
+
+- **Official Repos (`pacman -S`)**: Most common tools like neovim, tmux, alacritty, vlc, etc.
+- **AUR (`paru -S`)**: Newer/specialized tools like google-chrome, visual-studio-code-bin, 1password, zoom, etc.
+- Some packages may not be available everywhere (e.g., `gnome-sushi` may not be in all Arch repositories)
+
+### Optional Package Handling
+
+For packages that may not be available in all Arch-based distributions, use error suppression:
+
+```bash
+paru -S --noconfirm optional-package 2>/dev/null || true
+```
+
+This allows installation to continue even if the package isn't found.
+
+### Distribution Compatibility
+
+This branch supports:
+- Arch Linux (main distribution)
+- CachyOS (Arch-based with custom kernel)
+- Manjaro (Arch-based with stability focus)
+- Other Arch-based distributions
+
+Check `/etc/os-release` with both `ID` and `ID_LIKE` fields to detect Arch-based systems:
+
+```bash
+if [[ "$ID" == "arch" ]] || [[ "$ID_LIKE" == *"arch"* ]]; then
+  # Arch-compatible system
+fi
+```
 
 ## Release Management
 
 - Version is stored in `/version` file
 - Releases are tagged on the git repository
-- `stable` branch tracks the latest stable release
-- `master` branch is the development branch
+- `arch` branch is the Arch Linux development branch
+- `master` branch is the Ubuntu development branch
