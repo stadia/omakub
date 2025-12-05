@@ -1,5 +1,3 @@
 #!/bin/bash
 
-sudo apt purge -y virtualbox virtualbox-dkms virtualbox-qt virtualbox-ext-pack
-sudo apt autoremove --purge -y
-rm -rf ~/.config/VirtualBox
+sudo pacman -R --noconfirm virtualbox virtualbox-host-modules-arch virtualbox-ext-oracle

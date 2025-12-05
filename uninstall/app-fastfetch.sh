@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y fastfetch
+sudo pacman -R --noconfirm fastfetch

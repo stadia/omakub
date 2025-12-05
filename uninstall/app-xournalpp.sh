@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y xournalpp
+sudo pacman -R --noconfirm xournalpp

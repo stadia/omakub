@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y gh
+sudo pacman -R --noconfirm github-cli

@@ -1,3 +1,4 @@
 #!/bin/bash
 
-sudo apt remove -y tailscale
+sudo pacman -R --noconfirm tailscale
+sudo systemctl disable tailscaled.service

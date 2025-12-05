@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y zoom
+sudo pacman -R --noconfirm zoom

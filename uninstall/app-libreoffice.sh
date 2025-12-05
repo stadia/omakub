@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y libreoffice
+sudo pacman -R --noconfirm libreoffice-fresh

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove --purge -y signal-desktop
+sudo pacman -R --noconfirm signal-desktop

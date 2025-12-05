@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y flameshot
+sudo pacman -R --noconfirm flameshot

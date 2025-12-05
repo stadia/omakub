@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y obs-studio
+sudo pacman -R --noconfirm obs-studio

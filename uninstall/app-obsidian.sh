@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove --purge -y obsidian
+sudo pacman -R --noconfirm obsidian

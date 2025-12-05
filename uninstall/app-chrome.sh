@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y google-chrome-stable
+sudo pacman -R --noconfirm google-chrome

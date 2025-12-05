@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y openjdk-8-jdk minecraft-launcher
+sudo pacman -R --noconfirm jdk8-openjdk minecraft-launcher

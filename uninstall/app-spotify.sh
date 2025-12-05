@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt remove -y spotify-client
+sudo pacman -R --noconfirm spotify

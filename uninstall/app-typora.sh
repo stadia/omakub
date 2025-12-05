@@ -1,4 +1,3 @@
 #!/bin/bash
 
-sudo apt remove typora -y
-rm -rf ~/.config/Typora
+sudo pacman -R --noconfirm typora
