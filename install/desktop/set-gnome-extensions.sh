@@ -3,11 +3,9 @@
 sudo pacman -S --noconfirm extension-manager libgtop clutter
 pipx install gnome-extensions-cli --system-site-packages
 
-# Turn off default Ubuntu extensions
-gnome-extensions disable tiling-assistant@ubuntu.com
-gnome-extensions disable ubuntu-appindicators@ubuntu.com
-gnome-extensions disable ubuntu-dock@ubuntu.com
-gnome-extensions disable ding@rastersoft.com
+# Disable default extensions if they exist
+# Note: These are Ubuntu-specific extensions that may not be present on Arch
+gnome-extensions disable ding@rastersoft.com 2>/dev/null || true
 
 # Pause to assure user is ready to accept confirmations
 gum confirm "To install Gnome extensions, you need to accept some confirmations. Ready?"
