@@ -8,11 +8,11 @@ fi
 
 . /etc/os-release
 
-# Check if running on Arch Linux
-if [ "$ID" != "arch" ]; then
+# Check if running on Arch Linux or Arch-based distribution (CachyOS, Manjaro, etc.)
+if [[ "$ID" != "arch" ]] && [[ "$ID" != "cachyos" ]] && [[ "$ID_LIKE" != *"arch"* ]]; then
   echo "$(tput setaf 1)Error: OS requirement not met"
   echo "You are currently running: $ID"
-  echo "OS required: Arch Linux"
+  echo "OS required: Arch Linux or Arch-based distribution"
   echo "Installation stopped."
   exit 1
 fi
