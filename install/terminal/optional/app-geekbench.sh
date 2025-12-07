@@ -1,14 +1,10 @@
 #!/bin/bash
 
-GB_VERSION="6.4.0"
+# Install geekbench from AUR
+paru -S --noconfirm geekbench
 
-cd /tmp
-gum spin --title "Downloading Geekbench $GB_VERSION..." -- \
-  curl -sLo geekbench.tar.gz "https://cdn.geekbench.com/Geekbench-${GB_VERSION}-Linux.tar.gz"
-gum spin --title "Extracting Geekbench $GB_VERSION..." -- \
-  tar -xzf geekbench.tar.gz
-sudo mv "Geekbench-${GB_VERSION}-Linux" /usr/local/geekbench6
-sudo ln -sf /usr/local/geekbench6/geekbench6 /usr/local/bin/geekbench6
-rm -rf Geekbench* geekbench.tar.gz
-cd -
+# The AUR package installs to /usr/bin/geekbench6
+# Create symlink for consistency with original script
+sudo ln -sf /usr/bin/geekbench6 /usr/local/bin/geekbench6
+
 echo "Run as geekbench6 from the terminal"
