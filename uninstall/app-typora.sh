@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pacman -R --noconfirm typora
+paru -Rns --noconfirm typora

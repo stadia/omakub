@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pacman -R --noconfirm zoom
+paru -Rns --noconfirm zoom

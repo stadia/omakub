@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pacman -R --noconfirm spotify
+paru -Rns --noconfirm spotify

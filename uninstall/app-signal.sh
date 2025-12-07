@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pacman -R --noconfirm signal-desktop
+paru -Rns --noconfirm signal-desktop

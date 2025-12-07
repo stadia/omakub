@@ -22,8 +22,7 @@ if [[ -n $languages ]]; then
       mise uninstall go@latest
       ;;
     PHP)
-      sudo pacman -Rns --noconfirm php php-intl php-sqlite php-pgsql
-      sudo rm /usr/local/bin/composer
+      sudo pacman -Rns --noconfirm php php-intl php-sqlite php-pgsql composer
       ;;
     Python)
       mise uninstall python@latest

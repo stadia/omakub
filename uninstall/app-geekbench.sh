@@ -1,4 +1,7 @@
 #!/bin/bash
 
-sudo rm -rf /usr/local/geekbench6
-sudo rm -rf /usr/local/bin/geekbench6
+# Remove geekbench package from AUR
+paru -Rns --noconfirm geekbench
+
+# Remove the symlink we created during installation
+sudo rm -f /usr/local/bin/geekbench6
